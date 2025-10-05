@@ -28,7 +28,7 @@ public:
             head = head->next;
             delete temp;
         }
-    void Review(float raitng, string &comment){
+    void review(float raitng, string &comment){
             Review *newNode = new Review;
             newNode->rating = rating;
             newNode->comment = comment;
@@ -80,8 +80,9 @@ int main(){
     vector<string> comments;
     string line;
     while (getline(file, line)) {
-        if (line.empty())
+        if (line.empty()){
             comments.push_back(line);
+        }
     }
     file.close();
 
@@ -89,12 +90,12 @@ int main(){
     for (suto &movie:movies){
         for (int i=0; i<3 && num<(int)comment.size(); i++){
             float rating = random();
-        movie.Review(rating, comments[num]);
+        movie.review(rating, comments[num]);
         num++;
         }
     }
     for const auto &movie : movies){
-        movie.Review();
+        movie.review();
         }
         return 0;
     }
