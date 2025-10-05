@@ -32,7 +32,7 @@ public:
     void output( ){ 
       int count = 0;
         float total = 0;
-        Movie *temp = head;
+        Review *temp = head;
 
         while (temp) {
             cout << "    > Review #" << ++count << ": " << temp->rating << ": " << temp->comment << endl;
