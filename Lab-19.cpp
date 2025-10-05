@@ -22,16 +22,57 @@ public:
             head = head->next;
             delete temp;
         }
+    void Review(float raitng, string &comment){
+            Review *newNode = new Review;
+            newNode->rating = rating;
+            newNode->comment = comment;
+            newNode -> next = head;
+            head = newNode;
+    }
+    void output( ){ 
+      int count = 0;
+        float total = 0;
+        Movie *temp = head;
+
+        while (temp) {
+            cout << "    > Review #" << ++count << ": " << temp->rating << ": " << temp->comment << endl;
+            total += temp->rating;
+            temp = temp->next;
+        }
+        if (count > 0){
+            cout << "    > Average: " << total / count << endl;
+        }
+    }
+
     }
 
 int main(){
+    srand(time(0));
     vector<Movie> movies;
-    ifstream file("Array_File.txt");
+    //these are the four movies I chose
+    movies.emplace_back("My little pony");
+    movies.emplace_back("Sofia the First");
+    movies.emplace_back("Titanic");
+    movies.emplace_back("The Notebook");
+
+    ifstream file("review.txt");
 
     if (!file) {
         cerr << "Could not open Array_File.txt\n";
         return 1;
     }
+    vector<string> comments;
+    string line;
+    while (getline(file, line)) {
+        if (line.empty())
+            comments.push_back(line);
+    }
+    file.close();
+
+    int num = 0;
+    for (suto &movie:movies){
+        for (int i=0; i<3 && num<(int)comment.size(); i++){
+
 
     
 
