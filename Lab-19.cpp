@@ -10,6 +10,12 @@
 #include <ctime>
 using namespace std;
 
+struct Review{
+    float rating; 
+    string comment;
+    Review *next;
+};
+
 class Movie{
 private:
     string title;
@@ -42,9 +48,19 @@ public:
         if (count > 0){
             cout << "    > Average: " << total / count << endl;
         }
+        void deleteReview(Movie *&head){//this is to delete the review
+          while (head){
+            Movie *temp=head;
+            head = head->next;
+            delete temp;
+      }
+      head = nullptr;
     }
-
-    }
+};
+float random(){
+    int r = rant()%41+10;
+    return r/10.0f;
+}
 
 int main(){
     srand(time(0));
@@ -72,7 +88,16 @@ int main(){
     int num = 0;
     for (suto &movie:movies){
         for (int i=0; i<3 && num<(int)comment.size(); i++){
-
+            float rating = random();
+        movie.Review(rating, comments[num]);
+        num++;
+        }
+    }
+    for const auto &movie : movies){
+        movie.Review();
+        }
+        return 0;
+    }
 
     
 
