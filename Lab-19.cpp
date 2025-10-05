@@ -23,3 +23,22 @@ public:
             delete temp;
         }
     }
+
+int main(){
+    vector<Movie> movies;
+    ifstream file("Array_File.txt");
+
+    if (!file) {
+        cerr << "Could not open Array_File.txt\n";
+        return 1;
+    }
+
+    
+
+
+
+
+
+
+
+
