@@ -30,11 +30,16 @@ public:
         }
     }
     void review(float rating, string &comment){
-            Review *newNode = new Review;
-            newNode->rating = rating;
-            newNode->comment = comment;
-            newNode -> next = head;
-            head = newNode;
+            Review *newNode = new Review {rating, comment, nullptr};
+            if (!head) {
+                head = newNode;
+            } 
+            else {
+                Review *temp = head;
+                while (temp->next)
+                temp = temp->next;
+                temp->next = newNode;
+            }
     }
     void output( ){ 
       int count = 0;
@@ -66,9 +71,10 @@ float ran(){
 
 int main(){
     srand(time(0));
-    vector<Movie> movies;
+    
     //these are the four movies I chose
-    movies.emplace_back("My little pony");
+    vector<Movie> movies;
+    movies.emplace_back("My Little Pony");
     movies.emplace_back("Sofia the First");
     movies.emplace_back("Titanic");
     movies.emplace_back("The Notebook");
