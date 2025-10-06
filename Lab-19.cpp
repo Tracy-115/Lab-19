@@ -43,30 +43,18 @@ public:
     }
     void output( ){ 
       int count = 0;
-        float total = 0;
         Review *temp = head;
-
+        cout << "Movie: " << title << endl;
+        cout << fixed << setprecision(1) << " (Rating: " << temp->rating << ")" << endl; //I was having trouble with finding why my movie names would not print and, what I could do to make ratings print only once, keep it out of while
         while (temp) {
-            cout << "    > Review #" << ++count << ": " << temp->rating << ": " << temp->comment << endl;
-            total += temp->rating;
+            cout << "    > Review #" << ++count << ": " << temp->comment << endl;
             temp = temp->next;
         }
-        if (count > 0){
-            cout << "    > Average: " << total / count << endl;
-        }
     }
-       /*void deleteReview(Movie *&head){//this is to delete the review
-          while (head){
-            Movie *temp=head;
-            head = head->next;
-            delete temp;
-      }
-      head = nullptr;
-    }*/
 };
 float ran(){
-    int r = rand()%41+10;
-    return r/10.0f;
+    int r = rand() % 41 + 10;
+    return r / 10.0f;
 }
 
 int main(){
@@ -107,11 +95,6 @@ int main(){
         }
         return 0;
     }
-
-    
-
-
-
 
 
 
