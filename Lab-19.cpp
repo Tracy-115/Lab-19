@@ -28,7 +28,8 @@ public:
             head = head->next;
             delete temp;
         }
-    void review(float raitng, string &comment){
+    }
+    void review(float rating, string &comment){
             Review *newNode = new Review;
             newNode->rating = rating;
             newNode->comment = comment;
@@ -48,17 +49,18 @@ public:
         if (count > 0){
             cout << "    > Average: " << total / count << endl;
         }
-        void deleteReview(Movie *&head){//this is to delete the review
+    }
+       /*void deleteReview(Movie *&head){//this is to delete the review
           while (head){
             Movie *temp=head;
             head = head->next;
             delete temp;
       }
       head = nullptr;
-    }
+    }*/
 };
-float random(){
-    int r = rant()%41+10;
+float ran(){
+    int r = rand()%41+10;
     return r/10.0f;
 }
 
@@ -80,22 +82,22 @@ int main(){
     vector<string> comments;
     string line;
     while (getline(file, line)) {
-        if (line.empty()){
+        if (!line.empty()){
             comments.push_back(line);
         }
     }
     file.close();
 
     int num = 0;
-    for (suto &movie:movies){
-        for (int i=0; i<3 && num<(int)comment.size(); i++){
-            float rating = random();
-        movie.review(rating, comments[num]);
-        num++;
+    for (auto &movie:movies){
+        for (int i=0; i<3 && num<(int)comments.size(); i++){
+            float rating = ran();
+            movie.review(rating, comments[num]);
+            num++;
         }
     }
-    for const auto &movie : movies){
-        movie.review();
+    for ( auto &movie : movies){
+        movie.output();
         }
         return 0;
     }
