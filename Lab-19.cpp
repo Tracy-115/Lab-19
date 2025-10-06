@@ -76,7 +76,7 @@ int main(){
     ifstream file("review.txt");
 
     if (!file) {
-        cerr << "Could not open Array_File.txt\n";
+        cerr << "Could not open review.txt\n";
         return 1;
     }
     vector<string> comments;
